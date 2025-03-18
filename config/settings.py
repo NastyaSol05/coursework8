@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "celery",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [

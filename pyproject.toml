@@ -18,6 +18,10 @@ drf-yasg = "^1.21.10"
 requests = "^2.32.3"
 djangorestframework-simplejwt = "^5.5.0"
 django-cors-headers = "^4.7.0"
+coverage = "^7.7.0"
+redis = "^5.2.1"
+django-celery-beat = "^2.7.0"
+shell = "^1.0.1"
 
 
 [tool.poetry.group.lint.dependencies]

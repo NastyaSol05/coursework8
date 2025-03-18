@@ -4,7 +4,7 @@ from users.models import User
 
 
 class Habit(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="habits", verbose_name="Пользователь")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="habits", verbose_name="Пользователь", unique=False, blank=True, null=True, default="")
     place = models.CharField(max_length=255, verbose_name="Место")
     time = models.TimeField(verbose_name="Время")
     action = models.CharField(max_length=255, verbose_name="Действие")
