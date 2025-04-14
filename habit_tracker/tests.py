@@ -20,7 +20,7 @@ class HabitTestCase(APITestCase):
             frequency=1,
             reward=None,
             duration=2,
-            is_public=True
+            is_public=True,
         )
         self.client.force_authenticate(user=self.user)
 
@@ -49,7 +49,7 @@ class HabitTestCase(APITestCase):
             "is_pleasant": True,
             "frequency": 2,
             "reward": "Фрукт",
-            "duration": 5
+            "duration": 5,
         }
         response = self.client.patch(url, data, format="json")
         updated_habit = Habit.objects.get(pk=self.habit.pk)
