@@ -7,17 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
-      - name: install Python
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v2
+      - name: Install Python
+        uses: actions/setup-python@v4.7.1
         with:
           python-version: '3.12'
-      - name: install flake8
+      - name: Install flake8
         run: |
           python -m pip install --upgrade pip
           pip install flake8
       - name: Run flake8
         run: flake8 .
+
   test:
     needs: lint
     runs-on: ubuntu-latest
@@ -52,14 +53,14 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3  # Обновлено на последнюю стабильную версию
+        uses: actions/checkout@v2
 
-      - name: install python
-        uses: actions/setup-python@v4  # Обновлено на последнюю стабильную версию
+      - name: Install Python
+        uses: actions/setup-python@v4.7.1
         with:
           python-version: '3.12'
 
-      - name: install deepedansis
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -73,9 +74,9 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3  # Обновлено на последнюю стабильную версию
+        uses: actions/checkout@v2
 
-      - name: login docker
+      - name: Login to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
       - name: Build Docker image
@@ -90,9 +91,13 @@ jobs:
 
     steps:
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.4  # Обновлено на актуальную стабильную версию
+        uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add SSH key to agent
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | ssh-add -
 
       - name: Copy project files to server
         run: |
