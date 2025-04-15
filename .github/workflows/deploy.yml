@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: install Python
-        uses: actions/setup-python@v4.7.1
+        uses: actions/setup-python@v4
         with:
           python-version: '3.12'
       - name: install flake8
@@ -50,13 +50,12 @@ jobs:
       DEBUG: true
       CELERY_BROKER_URL: redis://localhost:6379/0
 
-
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Обновлено на последнюю стабильную версию
 
       - name: install python
-        uses: actions/setup-python@v4.7.1
+        uses: actions/setup-python@v4  # Обновлено на последнюю стабильную версию
         with:
           python-version: '3.12'
 
@@ -74,7 +73,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Обновлено на последнюю стабильную версию
 
       - name: login docker
         run: echo ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
@@ -91,7 +90,7 @@ jobs:
 
     steps:
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0
+        uses: webfactory/ssh-agent@v0.5.4  # Обновлено на актуальную стабильную версию
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
@@ -129,5 +128,3 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             sudo systemctl restart myapp.service
           EOF
-
-
