@@ -45,7 +45,7 @@ jobs:
       POSTGRES_DB: django_project
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: anastaA05
-      POSTGRES_HOST: db
+      POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
       DEBUG: true
       CELERY_BROKER_URL: redis://localhost:6379/0
