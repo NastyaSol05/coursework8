@@ -1,13 +1,7 @@
 from django.urls import path
 
-from habit_tracker.views import (
-    HabitCreateAPIView,
-    HabitDestroyAPIView,
-    HabitListAPIView,
-    HabitRetrieveAPIView,
-    HabitUpdateAPIView,
-    PublicListAPIView,
-)
+from habit_tracker.views import (HabitCreateAPIView, HabitDestroyAPIView, HabitListAPIView, HabitRetrieveAPIView,
+                                 HabitUpdateAPIView, PublicListAPIView)
 
 app_name = "habit_tracker"
 
