@@ -1,10 +1,9 @@
 from django.urls import path
 
-from habit_tracker.views import (HabitCreateAPIView, HabitDestroyAPIView,
-                          HabitListAPIView, HabitRetrieveAPIView,
-                          HabitUpdateAPIView, PublicListAPIView)
+from habit_tracker.views import (HabitCreateAPIView, HabitDestroyAPIView, HabitListAPIView, HabitRetrieveAPIView,
+                                 HabitUpdateAPIView, PublicListAPIView)
 
-app_name = 'habit_tracker'
+app_name = "habit_tracker"
 
 urlpatterns = [
     path("", HabitListAPIView.as_view(), name="habits_tracker"),

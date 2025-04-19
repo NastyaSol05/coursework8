@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.12"
 django = "^5.1.7"
 dotenv = "^0.9.9"
-psycopg2 = "^2.9.10"
+psycopg2-binary = "^2.9.10"
 celery = "^5.4.0"
 pillow = "^11.1.0"
 djangorestframework = "^3.15.2"
@@ -22,6 +22,7 @@ coverage = "^7.7.0"
 redis = "^5.2.1"
 django-celery-beat = "^2.7.0"
 shell = "^1.0.1"
+gunicorn = "^23.0.0"
 
 
 [tool.poetry.group.lint.dependencies]
